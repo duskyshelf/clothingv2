@@ -1,1 +1,1 @@
-var clothingShopFront  = angular.module('ClothingShop', []);
+var clothingShopFront = angular.module('ClothingShop', []);
