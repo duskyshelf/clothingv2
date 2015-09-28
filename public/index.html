@@ -15,8 +15,13 @@
 
   <body ng-controller="ClothingShopController as shopCtrl">
     <div>
-      <ul class="product-list">
-        <li>log: {{shopCtrl.productdata}}</li>
+      <ul class="product-list" ng-repeat="item in shopCtrl.productdata">
+        <li>
+          {{item.name}}
+          {{item.category}}
+          Price: {{item.price}}
+          Stock: {{item.stock}}
+        </li>
       </ul>
     </div>
   </body>
