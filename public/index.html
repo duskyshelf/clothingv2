@@ -21,6 +21,16 @@
           {{item.category}}
           Price: {{item.price}}
           Stock: {{item.stock}}
+          id: {{shopCtrl.productdata.indexOf(item)}}
+          <button id="item-{{shopCtrl.productdata.indexOf(item)}}" class="btn" ng-click="shopCtrl.addItem(item)">Add to basket</button>
+        </li>
+      </ul>
+        Basket:
+      <ul class="shopping-cart" ng-repeat="item in shopCtrl.basket">
+        <li>
+          {{item.name}}
+          {{item.category}}
+          {{item.price}}
         </li>
       </ul>
     </div>
