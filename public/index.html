@@ -19,9 +19,8 @@
         <li>
           {{item.name}}
           {{item.category}}
-          Price: {{item.price}}
+          Price: £{{item.price}}
           Stock: {{item.stock}}
-          id: {{shopCtrl.productdata.indexOf(item)}}
           <button id="item-{{shopCtrl.productdata.indexOf(item)}}" class="btn" ng-click="shopCtrl.addItem(item)">Add to basket</button>
         </li>
       </ul>
