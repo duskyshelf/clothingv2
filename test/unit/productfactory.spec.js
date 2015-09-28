@@ -2,7 +2,7 @@ describe('factory: productData', function() {
 
   var productdata;
 
-  var shoes = [
+  var productsample = [
         { name: "Almond Toe Court Shoes, Patent Black",
           category: "Women's Footwear",
           price: 99.00,
@@ -19,23 +19,21 @@ describe('factory: productData', function() {
     productdata = productData;
   }));
 
-  // beforeEach(inject(function($httpBackend) {
-  //   httpBackend = $httpBackend;
-  //   httpBackend
-  //     .when("https://api.github.com/search/users?q=hello")
-  //     .respond(
-  //       { items: items }
-  //     );
-  // }));
+  beforeEach(inject(function($httpBackend) {
+    httpBackend = $httpBackend;
+    httpBackend
+      .when('GET', 'js/ProductList.json')
+      .respond(
+        productsample
+      );
+  }));
+
 
   it('returns the product list', function() {
-  search.query('hello')
+  productdata
     .then(function(response) {
-      expect(response.data).toEqual(shoes);
+      expect(response.data).toEqual(productsample);
     });
   });
-
-
-
 
 });

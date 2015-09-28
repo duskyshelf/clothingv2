@@ -2,9 +2,12 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
 
 var self = this;
 
-self.getProducts = function() {
-  console.log("getProducts called");
-  console.log(productData);
+var getProducts = function() {
+  productData.then(function(response){
+    self.productdata = response.data;
+  });
 };
+
+getProducts();
 
 }]);

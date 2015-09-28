@@ -1,11 +1,5 @@
 clothingShopFront.factory('productData', function($http) {
 
-  var obj = {};
+return $http.get('js/ProductList.json');
 
-  $http.get('js/ProductList.json').then(function(data) {
-    console.log(data);
-    obj = data;
-  });
-
-  return obj;
 });
