@@ -22,7 +22,7 @@
           {{item.category}}
           Price: £{{item.price}}
           Stock: {{item.stock}}
-          <button id="item-{{shopCtrl.productdata.indexOf(item)}}" class="btn" ng-click="shopCtrl.addItem(item)">Add to basket</button>
+          <button id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)">Add to basket</button>
         </li>
       </ul>
         Basket:
@@ -30,11 +30,12 @@
         <li>
           {{item.name}}
           {{item.category}}
-          {{item.price}}
+          £{{item.price}}
           {{item.quantity}}
-          <button id="basket-{{shopCtrl.basket.indexOf(item)}}" class="btn" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
+          <button id="basket-{{shopCtrl.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
         </li>
       </ul>
+      Total: £{{shopCtrl.basketTotal()}}
     </div>
   </body>
 </html>

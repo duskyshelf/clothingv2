@@ -35,4 +35,12 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
     self.basket.splice(index, 1);
   };
 
+  self.basketTotal = function() {
+    var baskettotal = 0;
+    self.basket.forEach(function(item) {
+      baskettotal += item.price * item.quantity;
+    });
+    return baskettotal;
+  };
+
 }]);

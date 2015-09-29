@@ -13,15 +13,22 @@ describe('ClothingShopController', function() {
   });
 
   it('allows products to be added to basket', function() {
-    ctrl.addItem({"product": "example"});
-    expect(ctrl.basket).toEqual([{"product": "example", "quantity": 1}]);
+    ctrl.addItem({"name": "example"});
+    expect(ctrl.basket).toEqual([{"name": "example", "quantity": 1}]);
   });
 
   it('allows products to be removed from basket', function() {
-    ctrl.addItem({"product": "example"});
-    var basketItem = ctrl.basket[0]
-    ctrl.removeFromBasket(basketItem)
+    ctrl.addItem({"name": "example"});
+    var basketItem = ctrl.basket[0];
+    ctrl.removeFromBasket(basketItem);
     expect(ctrl.basket).toEqual([]);
+  });
+
+  it('calculates a running total for the basket', function() {
+    ctrl.addItem({"name": "example", "price": 100});
+    expect(ctrl.basketTotal()).toEqual(100);
+    ctrl.addItem({"name": "example2", "price": 150});
+    expect(ctrl.basketTotal()).toEqual(250);
   });
 
 
