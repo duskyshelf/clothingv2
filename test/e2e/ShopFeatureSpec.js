@@ -7,7 +7,8 @@ describe("Setting a target", function() {
     var productList = element(by.className("product-list")),
         shoppingCart  = element(by.className("shopping-cart")),
         shopItemOne = element(by.id('item-0')),
-        removeBasketItemOne = element(by.id('basket-0'));
+        removeBasketItemOne = element(by.id('basket-0'))
+        basketTotal = element(by.className("basket-total"));
 
     it('should load the correct homepage', function () {
       expect(browser.getTitle()).toEqual('So I Heard You Like Clothing');
@@ -30,8 +31,12 @@ describe("Setting a target", function() {
         removeBasketItemOne.click();
         expect(shoppingCart.isPresent()).toEqual(false);
       });
+
+      it('displays the basket total', function() {
+        shopItemOne.click();
+        expect(basketTotal.getText()).toEqual("Total: £99");
+      });
+
     });
-
-
 
 });

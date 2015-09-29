@@ -35,7 +35,9 @@
           <button id="basket-{{shopCtrl.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
         </li>
       </ul>
-      Total: £{{shopCtrl.basketTotal()}}
+      <div class="basket-total">
+        Total: £{{shopCtrl.basketTotal()}}
+      </div>
     </div>
   </body>
 </html>

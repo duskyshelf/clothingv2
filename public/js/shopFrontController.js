@@ -11,6 +11,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
   getProducts();
 
   self.basket = [];
+  self.discount = 0;
 
   self.addItem = function(product) {
     var found = self.basket.some(function(item) {
@@ -40,7 +41,13 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
     self.basket.forEach(function(item) {
       baskettotal += item.price * item.quantity;
     });
-    return baskettotal;
+    return baskettotal - self.discount;
+  };
+
+  self.applyVoucher = function(vouchercode) {
+    if (vouchercode === 'fiveoff') {
+      self.discount = 5;
+    }
   };
 
 }]);

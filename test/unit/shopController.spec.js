@@ -31,5 +31,12 @@ describe('ClothingShopController', function() {
     expect(ctrl.basketTotal()).toEqual(250);
   });
 
+  it('allows £5 off voucher to be applied', function() {
+    ctrl.addItem({"name": "example", "price": 100});
+    expect(ctrl.basketTotal()).toEqual(100);
+    ctrl.applyVoucher('fiveoff');
+    expect(ctrl.basketTotal()).toEqual(95);
+  });
+
 
 });
