@@ -55,6 +55,17 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
     if (voucher === 'tenoff' && basketAdder() > 50) {
       self.discount = 10;
     }
+    if (voucher === '15off' && basketAdder() > 75 && confirmFootwear()) {
+      self.discount = 15;
+    }
   };
+
+  var confirmFootwear = function() {
+    var confirmfootwear = false;
+    confirmfootwear = self.basket.some(function(item) {
+      return item.category.split(" ")[1] === "Footwear";
+    });
+    return confirmfootwear;
+};
 
 }]);

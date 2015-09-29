@@ -36,14 +36,14 @@ describe("Setting a target", function() {
 
       it('displays the basket total', function() {
         shopItemOne.click();
-        expect(basketTotal.getText()).toEqual("Total: £99");
+        expect(basketTotal.getText()).toEqual("Total: £99.00");
       });
 
       it('allows a £5 off voucher to be applied', function() {
         shopItemOne.click();
         voucherCodeBox.sendKeys('fiveoff');
         voucherApply.click();
-        expect(basketTotal.getText()).toEqual("Total: £94");
+        expect(basketTotal.getText()).toEqual("Total: £94.00");
       });
 
     });

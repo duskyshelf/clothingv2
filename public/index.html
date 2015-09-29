@@ -40,7 +40,7 @@
         <button class="voucher-btn" ng-click="shopCtrl.applyVoucher(shopCtrl.voucherCode)">Apply</button>
       </form>
       <div class="basket-total">
-        Total: £{{ shopCtrl.basketTotal() }}
+        Total: £{{ shopCtrl.basketTotal().toFixed(2) }}
       </div>
     </div>
   </body>

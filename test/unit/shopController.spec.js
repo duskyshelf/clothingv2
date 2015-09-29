@@ -49,5 +49,23 @@ describe('ClothingShopController', function() {
     expect(ctrl.basketTotal()).toEqual(40);
   });
 
+  it('allows £15 off voucher to be applied for male footwear order over £75', function() {
+    ctrl.addItem({"name": "example", "category": "Men's Footwear", "price": 80});
+    ctrl.applyVoucher('15off');
+    expect(ctrl.basketTotal()).toEqual(65);
+  });
+
+  it('allows £15 off voucher to be applied for female footwear order over £75', function() {
+    ctrl.addItem({"name": "example", "category": "Women's Footwear", "price": 80});
+    ctrl.applyVoucher('15off');
+    expect(ctrl.basketTotal()).toEqual(65);
+  });
+
+  it('does not allow £15 off voucher to be applied non-footwear order', function() {
+    ctrl.addItem({"name": "example", "category": "Men's Casualwear", "price": 80});
+    ctrl.applyVoucher('15off');
+    expect(ctrl.basketTotal()).toEqual(80);
+  });
+
 
 });
