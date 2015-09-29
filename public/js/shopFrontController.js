@@ -44,8 +44,8 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
     return baskettotal - self.discount;
   };
 
-  self.applyVoucher = function(vouchercode) {
-    if (vouchercode === 'fiveoff') {
+  self.applyVoucher = function() {
+    if (self.voucherCode === 'fiveoff') {
       self.discount = 5;
     }
   };

@@ -35,6 +35,10 @@
           <button id="basket-{{shopCtrl.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
         </li>
       </ul>
+      <form class="form-horizontal">
+        <input class="voucher-box" type="text" ng-model="shopCtrl.voucherCode">
+        <button class="voucher-btn" ng-click="shopCtrl.applyVoucher()">Apply</button>
+      </form>
       <div class="basket-total">
         Total: £{{shopCtrl.basketTotal()}}
       </div>
