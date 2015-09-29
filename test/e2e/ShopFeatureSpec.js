@@ -6,7 +6,8 @@ describe("Setting a target", function() {
 
     var productList = element(by.className("product-list")),
         shoppingCart  = element(by.className("shopping-cart")),
-        shopItemOne = element(by.id('item-0'));
+        shopItemOne = element(by.id('item-0')),
+        removeBasketItemOne = element(by.id('basket-0'));
 
     it('should load the correct homepage', function () {
       expect(browser.getTitle()).toEqual('So I Heard You Like Clothing');
@@ -22,6 +23,12 @@ describe("Setting a target", function() {
       it('can have items added to it', function() {
         shopItemOne.click();
         expect(shoppingCart.getText()).toContain('Almond Toe Court Shoes');
+      });
+
+      it('can have items removed from it', function() {
+        shopItemOne.click();
+        removeBasketItemOne.click();
+        expect(shoppingCart.isPresent()).toEqual(false);
       });
     });
 

@@ -32,6 +32,7 @@
           {{item.category}}
           {{item.price}}
           {{item.quantity}}
+          <button id="basket-{{shopCtrl.basket.indexOf(item)}}" class="btn" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
         </li>
       </ul>
     </div>
