@@ -10,7 +10,8 @@ describe("Setting a target", function() {
         removeBasketItemOne = element(by.id('basket-0')),
         basketTotal = element(by.className("basket-total")),
         voucherCodeBox = element(by.className("voucher-box")),
-        voucherApply = element(by.className("voucher-btn"));
+        voucherApply = element(by.className("voucher-btn")),
+        voucherNotifier = element(by.className("voucher-notifier"));
 
     it('should load the correct homepage', function () {
       expect(browser.getTitle()).toEqual('So I Heard You Like Clothing');
@@ -44,6 +45,13 @@ describe("Setting a target", function() {
         voucherCodeBox.sendKeys('fiveoff');
         voucherApply.click();
         expect(basketTotal.getText()).toEqual("Total: £94.00");
+      });
+
+      it('raises an invalid code notification when given an incorrect code', function() {
+        shopItemOne.click();
+        voucherCodeBox.sendKeys('incorrectcode');
+        voucherApply.click();
+        expect(voucherNotifier.getText()).toEqual("Invalid Code");
       });
 
     });
