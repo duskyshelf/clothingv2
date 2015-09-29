@@ -33,9 +33,20 @@ describe('ClothingShopController', function() {
 
   it('allows £5 off voucher to be applied', function() {
     ctrl.addItem({"name": "example", "price": 100});
-    expect(ctrl.basketTotal()).toEqual(100);
     ctrl.applyVoucher('fiveoff');
     expect(ctrl.basketTotal()).toEqual(95);
+  });
+
+  it('allows £10 off voucher to be applied for order over £50', function() {
+    ctrl.addItem({"name": "example", "price": 100});
+    ctrl.applyVoucher('tenoff');
+    expect(ctrl.basketTotal()).toEqual(90);
+  });
+
+  it('does not allow £10 off voucher to be applied for order under £50', function() {
+    ctrl.addItem({"name": "example", "price": 40});
+    ctrl.applyVoucher('tenoff');
+    expect(ctrl.basketTotal()).toEqual(40);
   });
 
 

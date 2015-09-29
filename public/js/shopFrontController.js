@@ -37,16 +37,23 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
   };
 
   self.basketTotal = function() {
+    return basketAdder() - self.discount;
+  };
+
+  var basketAdder = function() {
     var baskettotal = 0;
     self.basket.forEach(function(item) {
       baskettotal += item.price * item.quantity;
     });
-    return baskettotal - self.discount;
+    return baskettotal;
   };
 
-  self.applyVoucher = function() {
-    if (self.voucherCode === 'fiveoff') {
+  self.applyVoucher = function(voucher) {
+    if (voucher === 'fiveoff') {
       self.discount = 5;
+    }
+    if (voucher === 'tenoff' && basketAdder() > 50) {
+      self.discount = 10;
     }
   };
 

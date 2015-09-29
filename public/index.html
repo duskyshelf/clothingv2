@@ -37,10 +37,10 @@
       </ul>
       <form class="form-horizontal">
         <input class="voucher-box" type="text" ng-model="shopCtrl.voucherCode">
-        <button class="voucher-btn" ng-click="shopCtrl.applyVoucher()">Apply</button>
+        <button class="voucher-btn" ng-click="shopCtrl.applyVoucher(shopCtrl.voucherCode)">Apply</button>
       </form>
       <div class="basket-total">
-        Total: £{{shopCtrl.basketTotal()}}
+        Total: £{{ shopCtrl.basketTotal() }}
       </div>
     </div>
   </body>
