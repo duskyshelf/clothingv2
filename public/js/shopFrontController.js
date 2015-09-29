@@ -14,9 +14,14 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
   self.discount = 0;
 
   self.addItem = function(product) {
+    if (outOfStock(product)) {
+      throw "Out of stock";
+    }
+
+
     var found = self.basket.some(function(item) {
       return item.name === product.name;
-  });
+    });
 
     if (!found) {
       product.quantity = 1;
@@ -32,6 +37,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
   };
 
   self.removeFromBasket = function(product) {
+    product.quantity = 0;
     var index = self.basket.indexOf(product);
     self.basket.splice(index, 1);
   };
@@ -79,6 +85,13 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
       return item.category.split(" ")[1] === "Footwear";
     });
     return confirmfootwear;
+  };
+
+  var outOfStock = function(product) {
+    if (product.stock === 0) {
+      return true;
+    }
+    return product.stock <= product.quantity;
   };
 
 }]);

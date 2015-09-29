@@ -67,5 +67,16 @@ describe('ClothingShopController', function() {
     expect(ctrl.basketTotal()).toEqual(80);
   });
 
+  it('does not allow an out of stock item to be ordered', function() {
+    ctrl.addItem({"name": "example", "stock": 0});
+    expect(ctrl.basket).toEqual([]);
+  });
+
+  it('does not allow an more than the current stock to be ordered', function() {
+    var exampleproduct = {"name": "example", "stock": 1};
+    ctrl.addItem(exampleproduct);
+    ctrl.addItem(exampleproduct);
+    expect(ctrl.basket).toEqual([{"name": "example", "stock": 1, "quantity": 1}]);
+  });
 
 });
