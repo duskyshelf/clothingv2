@@ -43,3 +43,7 @@ body .navbar {
   padding: 8px;
   margin: 5px;
 }
+
+.product-stock {
+  float:right
+}

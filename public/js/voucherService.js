@@ -10,13 +10,13 @@ clothingShopFront.service('VoucherService', function() {
     return {
       "fiveoff": { "validation": [ self.basket.length > 0],
                    "discount": 5,
-                   "message": "£5 Off Discount Applied" },
+                   "message": "£5 Discount Applied" },
       "tenoff":  { "validation": [ (basketTotal() > 50) ],
                    "discount": 10,
-                   "message": "£10 Off Discount Applied" },
+                   "message": "£10 Discount Applied" },
       "15off":   { "validation": [ (basketTotal() > 75), confirmFootwear() ],
                    "discount": 15,
-                   "message": "£15 Footwear Discount Applied"}
+                   "message": "£15 Discount Applied"}
     };
   };
 

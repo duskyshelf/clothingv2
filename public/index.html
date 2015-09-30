@@ -56,10 +56,10 @@
       <div class="row">
         <div class="product-list col-md-4 col-sm-6 col-xs-12" ng-repeat="item in shopCtrl.productdata">
           <div class="inner">
+            <img src="/images/fashion.jpg">
             <p> {{item.name}} </p>
             <p> {{item.category}} </p>
-            <p> Price: £{{item.price}} </p>
-            <p> Stock: {{item.stock}} </p>
+            <p> Price: £{{item.price}} <span class="product-stock"> Stock: {{item.stock}} </span></p>
             <button class="btn btn-small" id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)" ng-disabled="{{shopCtrl.outOfStock(item)}}">Add to basket</button>
           </div>
         </div>
