@@ -19,12 +19,12 @@ All commands assume you are running this from terminal.
 Run the following commands from terminal to run the tests
 
 ##### Karma:  
-1. karma start test/karma.conf.js
+1. `karma start test/karma.conf.js`
 
-##### Protractor:  
-1. webdriver-manager start  
-2. http-server  
-3. protractor test/protractor.conf.js  
+##### Protractor: (these will require separate terminal windows)
+1. `webdriver-manager start`  
+2. `http-server`  
+3. `protractor test/protractor.conf.js`  
 
 
 ### Discount codes
