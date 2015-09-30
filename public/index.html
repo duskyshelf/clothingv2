@@ -27,13 +27,13 @@
           <ul class="shopping-cart" ng-repeat="item in shopCtrl.basket">
             <li>
             <p> {{item.name}} </p>
-            <p> {{item.category}} </p>
             <p>  quantity: {{item.quantity}} </p>
-            <p>  £{{item.price * item.quantity}} </p>
+            <p> Cost: £{{item.price * item.quantity}} </p>
             <button id="basket-{{shopCtrl.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
             </li>
           </ul>
           <form class="form-horizontal">
+            Voucher Code:
             <input class="voucher-box" type="text" ng-model="shopCtrl.voucherCode">
             <button class="voucher-btn" ng-click="shopCtrl.applyVoucher(shopCtrl.voucherCode)">Apply</button>
           </form>
@@ -50,11 +50,13 @@
     <div class="container">
       <div class="row">
         <div class="product-list col-md-4 col-sm-6 col-xs-12" ng-repeat="item in shopCtrl.productdata">
-          <p> {{item.name}} </p>
-          <p> {{item.category}} </p>
-          <p> Price: £{{item.price}} </p>
-          <p> Stock: {{item.stock}} </p>
-          <button id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)" ng-disabled="{{shopCtrl.outOfStock(item)}}">Add to basket</button>
+          <div class="inner">
+            <p> {{item.name}} </p>
+            <p> {{item.category}} </p>
+            <p> Price: £{{item.price}} </p>
+            <p> Stock: {{item.stock}} </p>
+            <button id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)" ng-disabled="{{shopCtrl.outOfStock(item)}}">Add to basket</button>
+          </div>
         </div>
       </div>
     </div>
