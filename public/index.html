@@ -19,6 +19,12 @@
   <body ng-controller="ClothingShopController as shopCtrl">
 
     <nav class="navbar navbar-default">
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          So I Heard You Like Clothing
+        </div>
+      </div>
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle basket-button" type="button" data-toggle="dropdown">
           Basket - {{shopCtrl.basketCount()}} items
@@ -43,6 +49,7 @@
           </form>
         </div>
       </div>
+    </div>
     </nav>
 
     <div class="container">

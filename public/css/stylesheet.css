@@ -7,6 +7,11 @@ body .navbar {
   margin-left: 5px;
 }
 
+.dropdown {
+  float:right;
+  margin-right:60px;
+}
+
 .dropdown-menu {
   width: 200px;
 }
