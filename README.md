@@ -40,8 +40,37 @@ This was built using angular
 
 File | Location
 --- | ---
+**Homepage** | public/index.html
 **Angular module** | public/js/app.js
 **Controller** | public/js/shopFrontController.js
 **Voucher Service** | public/js/voucherService.js
 **Product List (JSON)** | public/js/ProductList.JSON
 **Product Factory** | public/js/productFactory.js
+**Stylesheet** | public/css/stylesheet.css
+
+    ├── README.md
+    ├── bower.json
+    ├── package.json
+    ├── public
+    │   ├── css
+    │   │   └── stylesheet.css
+    │   ├── favicon.ico
+    │   ├── images
+    │   │   └── fashion.jpg
+    │   ├── index.html
+    │   └── js
+    │       ├── ProductList.json
+    │       ├── app.js
+    │       ├── productFactory.js
+    │       ├── shopFrontController.js
+    │       └── voucherService.js
+    ├── readmeimages
+    │   └── homepage.png
+    └── test
+        ├── e2e
+        │   └── ShopFeatureSpec.js
+        ├── karma.conf.js
+        ├── protractor.conf.js
+        └── unit
+            ├── productfactory.spec.js
+            └── shopController.spec.js
