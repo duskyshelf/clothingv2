@@ -8,9 +8,15 @@ clothingShopFront.service('VoucherService', function() {
 
   var getVoucherList = function() {
     return {
-      "fiveoff": { "validation": [true], "discount": 5 },
-      "tenoff":  { "validation": [ (basketTotal() > 50) ],  "discount": 10 },
-      "15off":   { "validation": [ (basketTotal() > 75), confirmFootwear() ], "discount": 15 }
+      "fiveoff": { "validation": [ self.basket.length > 0],
+                   "discount": 5,
+                   "message": "£5 Off Discount Applied" },
+      "tenoff":  { "validation": [ (basketTotal() > 50) ],
+                   "discount": 10,
+                   "message": "£10 Off Discount Applied" },
+      "15off":   { "validation": [ (basketTotal() > 75), confirmFootwear() ],
+                   "discount": 15,
+                   "message": "£15 Footwear Discount Applied"}
     };
   };
 
@@ -20,9 +26,10 @@ clothingShopFront.service('VoucherService', function() {
   };
 
   var processCode = function(voucher) {
-    if (getVoucherList()[voucher].validation.every(Boolean)) {
-      self.discount = getVoucherList()[voucher].discount;
-      self.voucheralert = "Discount Applied";
+    var voucherInfo = getVoucherList()[voucher];
+    if (voucherInfo.validation.every(Boolean)) {
+      self.discount = voucherInfo.discount;
+      self.voucheralert = voucherInfo.message;
     }
     else {
       self.voucheralert = "Discount Requirements Not Met";
@@ -30,7 +37,7 @@ clothingShopFront.service('VoucherService', function() {
   };
 
   var validVoucherCode = function(voucher) {
-    var vouchercodes = ['fiveoff', 'tenoff', '15off'];
+    var vouchercodes = Object.getOwnPropertyNames(getVoucherList());
     var correctcode = vouchercodes.some(function(validcode) {
       return voucher === validcode;
     });
