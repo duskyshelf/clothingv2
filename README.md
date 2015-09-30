@@ -16,11 +16,11 @@ http://localhost:8080/
 
 ### Testing
 
-Karma: karma start test/karma.conf.js
-Protractor:
-  webdriver-manager start
-  http-server
-  protractor test/protractor.conf.js
+  Karma: karma start test/karma.conf.js
+  Protractor:
+    webdriver-manager start
+    http-server
+    protractor test/protractor.conf.js
 
 
 ### Discount codes
@@ -34,7 +34,7 @@ Protractor:
 This was built using angular
 
 File | Location
---- | --- 
+--- | ---
 **Angular module** | public/js/app.js
 **Controller** | public/js/shopFrontController.js
 **Voucher Service** | public/js/voucherService.js
