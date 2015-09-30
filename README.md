@@ -4,17 +4,19 @@
 
 ## How to build
 
-All commands assume you are running this from terminal
+All commands assume you are running this from terminal.
 
-clone this repo!  
-open it up!  
-make sure you have node and bower   
-bower install  
-npm install  
-http-server  
-http://localhost:8080/  
+1. Clone this repo and open the containing folder 
+  * `git clone https://github.com/duskyshelf/clothingshop.git` 
+2. Make sure you have node and bower: `node -v` and `bower -v`  
+3. Run `bower install`  
+4. Run `npm install`  
+5. Run `http-server`  
+6. Visit: [http://localhost:8080/ ](http://localhost:8080/ )  
 
 ### Testing
+
+Run the following commands from terminal to run the tests
 
 ##### Karma:  
 1. karma start test/karma.conf.js
