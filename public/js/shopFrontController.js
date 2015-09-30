@@ -1,6 +1,7 @@
-clothingShopFront.controller('ClothingShopController', [ 'productData', function(productData) {
+clothingShopFront.controller('ClothingShopController', [ 'productData', 'VoucherService', function(productData, VoucherService) {
 
   var self = this;
+  var voucherService = VoucherService;
 
   var getProducts = function() {
     productData.then(function(response){
@@ -55,36 +56,13 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', function
   };
 
   self.applyVoucher = function(voucher) {
-    validVoucherCode(voucher);
-    if (voucher === 'fiveoff') {
-      self.discount = 5;
-      self.voucheralert = "£5 Off Voucher Applied";
-    }
-    if (voucher === 'tenoff' && basketAdder() > 50) {
-      self.discount = 10;
-      self.voucheralert = "£5 Off Voucher Applied";
-    }
-    if (voucher === '15off' && basketAdder() > 75 && confirmFootwear()) {
-      self.discount = 15;
-      self.voucheralert = "£15 Off Voucher Applied";
-    }
+    voucherService.applyVoucher(voucher, self.basket);
+    self.voucheralert = voucherService.voucheralert;
+    self.discount = voucherService.discount;
   };
 
-  var validVoucherCode = function(voucher) {
-    var vouchercodes = ['fiveoff', 'tenoff', '15off'];
-    var correctcode = vouchercodes.some(function(validcode) {
-      return voucher === validcode;
-    });
-
-    if (!correctcode) { self.voucheralert = "Invalid Code"; }
-  };
-
-  var confirmFootwear = function() {
-    var confirmfootwear = false;
-    confirmfootwear = self.basket.some(function(item) {
-      return item.category.split(" ")[1] === "Footwear";
-    });
-    return confirmfootwear;
+  self.outOfStock = function(item) {
+    return outOfStock(item);
   };
 
   var outOfStock = function(product) {
