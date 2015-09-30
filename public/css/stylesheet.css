@@ -1,6 +1,37 @@
-.dropdown-menu {
-  width: 200px
+body .navbar {
+  background-color: lightblue;
 }
+
+.basket-button {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  width: 200px;
+}
+
+.dropdown-menu .basket-total {
+  padding: 6px;
+}
+
+.dropdown-menu .shopping-cart {
+  padding: 6px;
+}
+
+.dropdown-menu .voucher-wrapper {
+  margin: 3px;
+  padding: 3px;
+}
+
+.dropdown-menu .voucher-btn {
+  margin-top: 3px;
+}
+
+.dropdown-menu .basket-total {
+  font-size: large;
+}
+
 
 .product-list .inner {
   border:1px solid black;
