@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="icon" href="/favicon.ico" type="image/icon">
     <script src="js/ProductList.json"></script>
     <script src="js/app.js"></script>
@@ -16,42 +17,49 @@
   </head>
 
   <body ng-controller="ClothingShopController as shopCtrl">
-    <div>
 
-      <div class="container">
-        <div class="row">
-          <div class="product-list col-md-4" ng-repeat="item in shopCtrl.productdata">
-              <p> {{item.name}} </p>
-              <p> {{item.category}} </p>
-              <p> Price: £{{item.price}} </p>
-              <p> Stock: {{item.stock}} </p>
-            <button id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)" ng-disabled="{{shopCtrl.outOfStock(item)}}">Add to basket</button>
+    <nav class="navbar navbar-default">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle basket-button" type="button" data-toggle="dropdown">
+          Basket - {{shopCtrl.basketCount()}} items
+        <span class="caret"></span></button>
+        <div class="dropdown-menu">
+          <ul class="shopping-cart" ng-repeat="item in shopCtrl.basket">
+            <li>
+            <p> {{item.name}} </p>
+            <p> {{item.category}} </p>
+            <p>  quantity: {{item.quantity}} </p>
+            <p>  £{{item.price * item.quantity}} </p>
+            <button id="basket-{{shopCtrl.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
+            </li>
+          </ul>
+          <form class="form-horizontal">
+            <input class="voucher-box" type="text" ng-model="shopCtrl.voucherCode">
+            <button class="voucher-btn" ng-click="shopCtrl.applyVoucher(shopCtrl.voucherCode)">Apply</button>
+          </form>
+          <div class="basket-total">
+            Total: £{{ shopCtrl.basketTotal().toFixed(2) }}
+          </div>
+          <div class="voucher-notifier">
+            {{ shopCtrl.voucheralert }}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="product-list col-md-4 col-sm-6 col-xs-12" ng-repeat="item in shopCtrl.productdata">
+          <p> {{item.name}} </p>
+          <p> {{item.category}} </p>
+          <p> Price: £{{item.price}} </p>
+          <p> Stock: {{item.stock}} </p>
+          <button id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)" ng-disabled="{{shopCtrl.outOfStock(item)}}">Add to basket</button>
         </div>
       </div>
     </div>
-    <div>
-      Basket:
 
-      <ul class="shopping-cart" ng-repeat="item in shopCtrl.basket">
-        <li>
-          {{item.name}}
-          {{item.category}}
-          £{{item.price}}
-          quantity: {{item.quantity}}
-          <button id="basket-{{shopCtrl.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
-        </li>
-      </ul>
-      <form class="form-horizontal">
-        <input class="voucher-box" type="text" ng-model="shopCtrl.voucherCode">
-        <button class="voucher-btn" ng-click="shopCtrl.applyVoucher(shopCtrl.voucherCode)">Apply</button>
-      </form>
-      <div class="basket-total">
-        Total: £{{ shopCtrl.basketTotal().toFixed(2) }}
-      </div>
-      <div class="voucher-notifier">
-        {{ shopCtrl.voucheralert }}
-      </div>
-    </div>
+
   </div>
   </body>
 </html>

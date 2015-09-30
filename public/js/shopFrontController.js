@@ -69,4 +69,12 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
     return product.stock <= product.quantity;
   };
 
+  self.basketCount = function() {
+    var itemCount = 0;
+    self.basket.forEach(function(item) {
+      itemCount += item.quantity;
+    });
+    return itemCount;
+  };
+
 }]);
