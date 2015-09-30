@@ -15,10 +15,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   self.discount = 0;
 
   self.addItem = function(product) {
-    if (outOfStock(product)) {
-      throw "Out of stock";
-    }
-
+    if (outOfStock(product)) { throw "Out of stock"; }
 
     var found = self.basket.some(function(item) {
       return item.name === product.name;

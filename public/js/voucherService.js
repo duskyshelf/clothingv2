@@ -3,21 +3,29 @@ clothingShopFront.service('VoucherService', function() {
   var self = this;
 
   self.discount = 0;
+  self.basket = [];
+  self.voucheralert = "";
+
+  var getVoucherList = function() {
+    return {
+      "fiveoff": { "validation": [true], "discount": 5 },
+      "tenoff":  { "validation": [ (basketTotal() > 50) ],  "discount": 10 },
+      "15off":   { "validation": [ (basketTotal() > 75), confirmFootwear() ], "discount": 15 }
+    };
+  };
 
   self.applyVoucher = function(voucher, shoppingBasket) {
     self.basket = shoppingBasket;
-    validVoucherCode(voucher);
-    if (voucher === 'fiveoff') {
-      self.discount = 5;
-      self.voucheralert = "£5 Off Voucher Applied";
+    if (validVoucherCode(voucher)) {processCode(voucher);}
+  };
+
+  var processCode = function(voucher) {
+    if (getVoucherList()[voucher].validation.every(Boolean)) {
+      self.discount = getVoucherList()[voucher].discount;
+      self.voucheralert = "Discount Applied";
     }
-    if (voucher === 'tenoff' && basketTotal() > 50) {
-      self.discount = 10;
-      self.voucheralert = "£10 Off Voucher Applied";
-    }
-    if (voucher === '15off' && basketTotal() > 75 && confirmFootwear()) {
-      self.discount = 15;
-      self.voucheralert = "£15 Off Voucher Applied";
+    else {
+      self.voucheralert = "Discount Requirements Not Met";
     }
   };
 
@@ -30,6 +38,7 @@ clothingShopFront.service('VoucherService', function() {
       self.discount = 0;
       self.voucheralert = "Invalid Code";
     }
+    return correctcode;
   };
 
   var basketTotal = function() {

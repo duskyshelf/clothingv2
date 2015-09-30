@@ -13,38 +13,38 @@ describe('ClothingShopController', function() {
   });
 
   it('allows products to be added to basket', function() {
-    ctrl.addItem({"name": "example"});
-    expect(ctrl.basket).toEqual([{"name": "example", "quantity": 1}]);
+    ctrl.addItem({"name": "example", "category": "example"});
+    expect(ctrl.basket).toEqual([{"name": "example", "quantity": 1, "category": "example"}]);
   });
 
   it('allows products to be removed from basket', function() {
-    ctrl.addItem({"name": "example"});
+    ctrl.addItem({"name": "example", "category": "example"});
     var basketItem = ctrl.basket[0];
     ctrl.removeFromBasket(basketItem);
     expect(ctrl.basket).toEqual([]);
   });
 
   it('calculates a running total for the basket', function() {
-    ctrl.addItem({"name": "example", "price": 100});
+    ctrl.addItem({"name": "example", "price": 100, "category": "example"});
     expect(ctrl.basketTotal()).toEqual(100);
-    ctrl.addItem({"name": "example2", "price": 150});
+    ctrl.addItem({"name": "example2", "price": 150, "category": "example"});
     expect(ctrl.basketTotal()).toEqual(250);
   });
 
   it('allows £5 off voucher to be applied', function() {
-    ctrl.addItem({"name": "example", "price": 100});
+    ctrl.addItem({"name": "example", "price": 100, "category": "example"});
     ctrl.applyVoucher('fiveoff');
     expect(ctrl.basketTotal()).toEqual(95);
   });
 
   it('allows £10 off voucher to be applied for order over £50', function() {
-    ctrl.addItem({"name": "example", "price": 100});
+    ctrl.addItem({"name": "example", "price": 100, "category": "example"});
     ctrl.applyVoucher('tenoff');
     expect(ctrl.basketTotal()).toEqual(90);
   });
 
   it('does not allow £10 off voucher to be applied for order under £50', function() {
-    ctrl.addItem({"name": "example", "price": 40});
+    ctrl.addItem({"name": "example", "price": 40, "category": "example"});
     ctrl.applyVoucher('tenoff');
     expect(ctrl.basketTotal()).toEqual(40);
   });
