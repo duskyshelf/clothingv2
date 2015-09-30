@@ -6,23 +6,23 @@
 
 All commands assume you are running this from terminal
 
-clone this repo!
-open it up!
-make sure you have node and bower
-bower install
-npm install
-http-server
-http://localhost:8080/
+clone this repo!  
+open it up!  
+make sure you have node and bower   
+bower install  
+npm install  
+http-server  
+http://localhost:8080/  
 
 ### Testing
 
-Karma:
+##### Karma:  
 1. karma start test/karma.conf.js
 
-Protractor:
-1. webdriver-manager start
-2. http-server
-3. protractor test/protractor.conf.js
+##### Protractor:  
+1. webdriver-manager start  
+2. http-server  
+3. protractor test/protractor.conf.js  
 
 
 ### Discount codes
