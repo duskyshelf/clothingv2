@@ -16,11 +16,12 @@ http://localhost:8080/
 
 ### Testing
 
-  Karma: karma start test/karma.conf.js
-  Protractor:
-    webdriver-manager start
-    http-server
-    protractor test/protractor.conf.js
+Karma: karma start test/karma.conf.js
+
+Protractor:
+  webdriver-manager start
+  http-server
+  protractor test/protractor.conf.js
 
 
 ### Discount codes
