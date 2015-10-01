@@ -14,13 +14,15 @@ I saved the product data as a local JSON file and called it through an Angular f
 
 I initially built most of the logic in the controller with the intention of refactoring the logic into seperate services as required. I have managed this with the voucher code logic (found in the voucher service), but due to time constraints there is still a lot of logic within the controller.
 
+Styling was done using HTML/CSS and Bootstrap. I kept the styling very simple as I wanted to focus more on the testing and logic. Bootstrap was useful for making sure the site was responsive.
+
 #### Shortcomings
 
 I would like liked to have taken more time to move a lot of the basket methods out of the controller into a service. This would have been my next priority as this seems like a good opportunity to move the bulk of the remaining logic out of the controller.
 
-Refactoring the Karma tests when creating the voucher service would have been nice.
+My styling was relatively simple and I could have played around with the design a lot more.
 
-
+Refactoring the Karma tests when creating the voucher service would have also made sense.
 
 ## How to build
 
