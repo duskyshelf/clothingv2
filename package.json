@@ -9,7 +9,8 @@
   "dependencies": {
     "bower": "^1.5.3",
     "http-server": "^0.8.4",
-    "protractor": "^2.2.0"
+    "protractor": "^2.2.0",
+    "express": "^4.13.3"
   },
   "devDependencies": {
     "jasmine-core": "^2.3.4",
