@@ -25,6 +25,24 @@ I initially built most of the logic in the controller with the intention of refa
 
 Styling was done using HTML/CSS and Bootstrap. I kept the styling very simple as I wanted to focus more on the testing and logic. Bootstrap was useful for making sure the site was responsive.
 
+#### Voucher Code Comments
+
+I store the voucher codes within a function which stores the codes, validations and discount in one place. I designed it this way so that it would be easy to remove/add and update any voucher codes and also check any criteria the voucher codes need to fulfill.
+
+        var getVoucherList = function() {
+          return {
+            "fiveoff": { "validation": [ self.basket.length > 0],
+                         "discount": 5,
+                         "message": "£5 Discount Applied" },
+            "tenoff":  { "validation": [ (basketTotal() > 50) ],
+                         "discount": 10,
+                         "message": "£10 Discount Applied" },
+            "15off":   { "validation": [ (basketTotal() > 75), confirmFootwear() ],
+                         "discount": 15,
+                         "message": "£15 Discount Applied"}
+          };
+        };
+
 #### Improvements
 
 I would liked to have taken more time to move a the basket methods out of the controller into a separate service. This would have been my next priority as this seems like a good opportunity to move the bulk of the remaining logic out of the controller.
