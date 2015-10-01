@@ -1,13 +1,19 @@
-# clothingshop
+# Clothingshop
 
 ![homepage](/readmeimages/homepage.png)
+
+## About Clothingshop
+
+(all notes about building, testing and file structure around this application can be found below)
+
+Clothing shop
 
 ## How to build
 
 All commands assume you are running this from terminal.
 
-1. Clone this repo and open the containing folder 
-  * `git clone https://github.com/duskyshelf/clothingshop.git` 
+1. Clone this repo and open the containing folder
+  * `git clone https://github.com/duskyshelf/clothingshop.git`
 2. Make sure you have node and bower: `node -v` and `bower -v`  
 3. Run `bower install`  
 4. Run `npm install`  
@@ -18,10 +24,10 @@ All commands assume you are running this from terminal.
 
 Run the following commands from terminal to run the tests
 
-##### Karma:  
+##### Karma (Unit Tests):  
 1. `karma start test/karma.conf.js`
 
-##### Protractor:
+##### Protractor (Feature Tests):
 (these will require separate terminal windows)  
 1. `webdriver-manager start`  
 2. `http-server`  
@@ -36,9 +42,9 @@ Run the following commands from terminal to run the tests
 
 ### File structure
 
-This was built using angular
+This was built using AngularJS
 
-File | Location
+**Public File** | **Location**
 --- | ---
 **Homepage** | public/index.html
 **Angular module** | public/js/app.js
@@ -47,6 +53,14 @@ File | Location
 **Product List (JSON)** | public/js/ProductList.JSON
 **Product Factory** | public/js/productFactory.js
 **Stylesheet** | public/css/stylesheet.css
+
+**Test File** | **Location**
+--- | ---
+**Karma Config** | test/karma.conf.js
+**Karna Controller Test File** | test/unit/shopController.spec.js
+**Karma Factory Test File** | test/unit/shopController.spec.js
+**Protractor Config** | test/protractor.conf.js
+**Protractor Feature Tests** | test/e2e/ShopFeatureSpec.js
 
     ├── README.md
     ├── bower.json
