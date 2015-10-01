@@ -6,6 +6,13 @@
 
 (all notes about building, testing and file structure around this application can be found below)
 
+#### Tools Used
+
+Testing: Karma, Protractor  
+Frameworks: Angular, Bootstrap
+
+#### Comments about build
+
 Clothing shop was built as an AngularJS single page application as I felt this was a simple setup that could meet all the features in the user stories.
 
 This project was test driven using Karma for unit testing and then Protractor for feature testing.
