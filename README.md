@@ -6,7 +6,21 @@
 
 (all notes about building, testing and file structure around this application can be found below)
 
-Clothing shop
+Clothing shop was built as an AngularJS single page application as I felt this was a simple setup that could meet all the features in the user stories.
+
+This project was test driven using Karma for unit testing and then Protractor for feature testing.
+
+I saved the product data as a local JSON file and called it through an Angular factory as I wanted to set the data up quickly, but with the option of moving it to an external API if required.
+
+I initially built most of the logic in the controller with the intention of refactoring the logic into seperate services as required. I have managed this with the voucher code logic (found in the voucher service), but due to time constraints there is still a lot of logic within the controller.
+
+#### Shortcomings
+
+I would like liked to have taken more time to move a lot of the basket methods out of the controller into a service. This would have been my next priority as this seems like a good opportunity to move the bulk of the remaining logic out of the controller.
+
+Refactoring the Karma tests when creating the voucher service would have been nice.
+
+
 
 ## How to build
 
