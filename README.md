@@ -23,13 +23,11 @@ I initially built most of the logic in the controller with the intention of refa
 
 Styling was done using HTML/CSS and Bootstrap. I kept the styling very simple as I wanted to focus more on the testing and logic. Bootstrap was useful for making sure the site was responsive.
 
-#### Shortcomings
+#### Improvements
 
-I would like liked to have taken more time to move a lot of the basket methods out of the controller into a service. This would have been my next priority as this seems like a good opportunity to move the bulk of the remaining logic out of the controller.
+I would liked to have taken more time to move a the basket methods out of the controller into a separate service. This would have been my next priority as this seems like a good opportunity to move the bulk of the remaining logic out of the controller.
 
-My styling was relatively simple and I could have played around with the design a lot more.
-
-Refactoring the Karma tests when creating the voucher service would have also made sense.
+My styling was relatively simple, and whilst functional could be improved.
 
 ## How to build
 
