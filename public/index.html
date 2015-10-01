@@ -8,7 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="icon" href="/favicon.ico" type="image/icon">
     <script src="js/ProductList.json"></script>
     <script src="js/app.js"></script>
     <script src="js/shopFrontController.js"></script>
@@ -59,7 +58,7 @@
             <img class="product-image" src="/images/fashion.jpg">
             <p> {{item.name}} </p>
             <p> {{item.category}} </p>
-            <p> Price: £{{item.price}} <span class="product-stock"> Stock: {{item.stock}} </span></p>
+            <p> Price: £{{item.price}} <span class="product-stock"> Stock: {{item.stock - item.quantity}} </span></p>
             <button class="btn btn-small" id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)" ng-disabled="{{shopCtrl.outOfStock(item)}}">Add to basket</button>
           </div>
         </div>

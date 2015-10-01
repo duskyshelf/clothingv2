@@ -32,7 +32,8 @@ clothingShopFront.service('VoucherService', function() {
       self.voucheralert = voucherInfo.message;
     }
     else {
-      self.voucheralert = "Discount Requirements Not Met";
+      self.voucheralert = "Code Not Applied Discount Requirements Not Met";
+      self.discount = 0;
     }
   };
 
