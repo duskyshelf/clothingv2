@@ -4,25 +4,28 @@
 
 ## How to build
 
-All commands assume you are running this from terminal
+All commands assume you are running this from terminal.
 
-clone this repo!
-open it up!
-make sure you have node and bower
-bower install
-npm install
-http-server
-http://localhost:8080/
+1. Clone this repo and open the containing folder 
+  * `git clone https://github.com/duskyshelf/clothingshop.git` 
+2. Make sure you have node and bower: `node -v` and `bower -v`  
+3. Run `bower install`  
+4. Run `npm install`  
+5. Run `http-server`  
+6. Visit: [http://localhost:8080/ ](http://localhost:8080/ )  
 
 ### Testing
 
-Karma:
-1. karma start test/karma.conf.js
+Run the following commands from terminal to run the tests
 
-Protractor:
-1. webdriver-manager start
-2. http-server
-3. protractor test/protractor.conf.js
+##### Karma:  
+1. `karma start test/karma.conf.js`
+
+##### Protractor:
+(these will require separate terminal windows)  
+1. `webdriver-manager start`  
+2. `http-server`  
+3. `protractor test/protractor.conf.js`  
 
 
 ### Discount codes
@@ -37,8 +40,37 @@ This was built using angular
 
 File | Location
 --- | ---
+**Homepage** | public/index.html
 **Angular module** | public/js/app.js
 **Controller** | public/js/shopFrontController.js
 **Voucher Service** | public/js/voucherService.js
 **Product List (JSON)** | public/js/ProductList.JSON
 **Product Factory** | public/js/productFactory.js
+**Stylesheet** | public/css/stylesheet.css
+
+    ├── README.md
+    ├── bower.json
+    ├── package.json
+    ├── public
+    │   ├── css
+    │   │   └── stylesheet.css
+    │   ├── favicon.ico
+    │   ├── images
+    │   │   └── fashion.jpg
+    │   ├── index.html
+    │   └── js
+    │       ├── ProductList.json
+    │       ├── app.js
+    │       ├── productFactory.js
+    │       ├── shopFrontController.js
+    │       └── voucherService.js
+    ├── readmeimages
+    │   └── homepage.png
+    └── test
+        ├── e2e
+        │   └── ShopFeatureSpec.js
+        ├── karma.conf.js
+        ├── protractor.conf.js
+        └── unit
+            ├── productfactory.spec.js
+            └── shopController.spec.js
