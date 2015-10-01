@@ -7,8 +7,9 @@
     "test": "test"
   },
   "dependencies": {
-    "protractor": "^2.2.0",
-    "http-server": "^0.8.4"
+    "bower": "^1.5.3",
+    "http-server": "^0.8.4",
+    "protractor": "^2.2.0"
   },
   "devDependencies": {
     "jasmine-core": "^2.3.4",
