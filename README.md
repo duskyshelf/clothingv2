@@ -4,6 +4,8 @@
 
 ## About Clothingshop
 
+Heroku build: https://clothingshop.herokuapp.com/
+
 (all notes about building, testing and file structure around this application can be found below)
 
 #### Tools Used
