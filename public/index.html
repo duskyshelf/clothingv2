@@ -59,7 +59,6 @@
             <p> {{item.name}} </p>
             <p> {{item.category}} </p>
             <p> Price: £{{item.price}} <span class="product-stock"> Stock: {{item.stock - item.quantity}} </span></p>
-            {{shopCtrl.outOfStock(item)}}
             <button class="btn btn-small" id="item-{{shopCtrl.productdata.indexOf(item)}}" ng-click="shopCtrl.addItem(item)" ng-disabled="shopCtrl.outOfStock(item)">Add to basket</button>
           </div>
         </div>
