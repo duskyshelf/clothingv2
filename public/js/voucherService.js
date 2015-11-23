@@ -8,13 +8,13 @@ clothingShopFront.service('VoucherService', function() {
 
   var getVoucherList = function() {
     return {
-      "fiveoff": { "validation": [ self.basket.length > 0],
+      "fiveoff": { "validation": [ basketNonEmpty() ],
                    "discount": 5,
                    "message": "£5 Discount Applied" },
-      "tenoff":  { "validation": [ (basketTotal() > 50) ],
+      "tenoff":  { "validation": [ basketNonEmpty(), basketAbove(50) ],
                    "discount": 10,
                    "message": "£10 Discount Applied" },
-      "15off":   { "validation": [ (basketTotal() > 75), confirmFootwear() ],
+      "15off":   { "validation": [ basketNonEmpty(), basketAbove(75), basketContains("Footwear") ],
                    "discount": 15,
                    "message": "£15 Discount Applied"}
     };
@@ -32,8 +32,8 @@ clothingShopFront.service('VoucherService', function() {
       self.voucheralert = voucherInfo.message;
     }
     else {
-      self.voucheralert = "Code Not Applied Discount Requirements Not Met";
       self.discount = 0;
+      self.voucheralert = "Code Not Applied Discount Requirements Not Met";
     }
   };
 
@@ -57,12 +57,20 @@ clothingShopFront.service('VoucherService', function() {
     return baskettotal;
   };
 
-  var confirmFootwear = function() {
-    var confirmfootwear = false;
-    confirmfootwear = self.basket.some(function(item) {
-      return item.category.split(" ")[1] === "Footwear";
+  var basketAbove = function(amount) {
+    return basketTotal() > amount;
+  };
+
+  var basketContains = function(string) {
+    var basketcheck = false;
+    basketcheck = self.basket.some(function(item) {
+      return item.category.split(" ")[1] === string;
     });
-    return confirmfootwear;
+    return basketcheck;
+  };
+
+  var basketNonEmpty = function() {
+    return self.basket.length > 0;
   };
 
 });
