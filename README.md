@@ -21,7 +21,7 @@ This project was test driven using Karma for unit testing and then Protractor fo
 
 I saved the product data as a local JSON file and called it through an Angular factory as I wanted to set the data up quickly, but with the option of moving it to an external API if required.
 
-I initially built most of the logic in the controller with the intention of refactoring it into separate services as required. I have managed this with the voucher code logic (found in the voucher service), but due to time constraints there is still a lot of logic within the controller.
+I initially built most of the logic in the controller and refactored the majority of the logic into 2 services, VoucherService and BasketService.
 
 Styling was done using HTML/CSS and Bootstrap. I kept the styling very simple as I wanted to focus more on the testing and logic. Bootstrap was useful for making sure the site was responsive.
 
