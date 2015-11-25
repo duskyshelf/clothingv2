@@ -17,11 +17,15 @@ body .navbar {
 }
 
 .dropdown-menu .basket-total {
+  border:1px solid black;
   padding: 6px;
+  margin: 8px;
 }
 
 .dropdown-menu .shopping-cart {
+  border:1px solid black;
   padding: 6px;
+  margin: 8px;
 }
 
 .dropdown-menu .voucher-wrapper {

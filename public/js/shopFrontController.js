@@ -1,7 +1,8 @@
-clothingShopFront.controller('ClothingShopController', [ 'productData', 'VoucherService', function(productData, VoucherService) {
+clothingShopFront.controller('ClothingShopController', [ 'productData', 'VoucherService', 'BasketService', function(productData, VoucherService, BasketService) {
 
   var self = this;
   var voucherService = VoucherService;
+  var basketService = BasketService;
 
   var getProducts = function() {
     productData.then(function(response){
@@ -11,7 +12,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
 
   getProducts();
 
-  self.basket = [];
+  self.basket = basketService.basket;
   self.discount = 0;
   self.discountcode = "";
 
@@ -33,6 +34,10 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
         }
       }
     }
+  };
+
+  self.alreadyInBasket = function(item) {
+
   };
 
   self.removeFromBasket = function(product) {
