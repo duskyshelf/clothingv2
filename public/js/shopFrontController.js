@@ -17,51 +17,26 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   self.discountcode = "";
 
   self.addItem = function(product) {
-    if (outOfStock(product)) { throw "Out of stock"; }
-
-    var found = self.basket.some(function(item) {
-      return item.name === product.name;
-    });
-
-    if (!found) {
-      product.quantity = 1;
-      self.basket.push(product);
-    }
-    else {
-      for (var i in self.basket) {
-        if (self.basket[i].name == product.name) {
-          self.basket[i].quantity++;
-        }
-      }
-    }
-  };
-
-  self.alreadyInBasket = function(item) {
-
+    basketService.addItem(product);
+    self.basket = basketService.basket;
   };
 
   self.removeFromBasket = function(product) {
-    product.quantity = 0;
-    var index = self.basket.indexOf(product);
-    self.basket.splice(index, 1);
+    basketService.removeFromBasket(product);
+    reapplyDiscount();
+  };
+
+  var reapplyDiscount = function() {
     self.applyVoucher(self.discountcode);
   };
 
   self.basketTotal = function() {
-    return basketAdder() - self.discount;
-  };
-
-  var basketAdder = function() {
-    var baskettotal = 0;
-    self.basket.forEach(function(item) {
-      baskettotal += item.price * item.quantity;
-    });
-    return baskettotal;
+    return basketService.basketTotal() - self.discount;
   };
 
   self.applyVoucher = function(voucher) {
     self.discountcode = voucher;
-    voucherService.applyVoucher(voucher, self.basket);
+    voucherService.applyVoucher(voucher);
     self.voucheralert = voucherService.voucheralert;
     self.discount = voucherService.discount;
   };
@@ -78,11 +53,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   };
 
   self.basketCount = function() {
-    var itemCount = 0;
-    self.basket.forEach(function(item) {
-      itemCount += item.quantity;
-    });
-    return itemCount;
+    return basketService.basketCount();
   };
 
 }]);

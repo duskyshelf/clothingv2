@@ -1,4 +1,4 @@
-clothingShopFront.service('BasketService', function() {
+clothingShopFront.service('BasketService', ['productData', function(productData) {
 
   var self = this;
 
@@ -24,6 +24,29 @@ clothingShopFront.service('BasketService', function() {
     }
   };
 
+  self.removeFromBasket = function(product) {
+    product.quantity = 0;
+    var index = self.basket.indexOf(product);
+    self.basket.splice(index, 1);
+  };
+
+
+  self.basketTotal = function() {
+    var baskettotal = 0;
+    self.basket.forEach(function(item) {
+      baskettotal += item.price * item.quantity;
+    });
+    return baskettotal;
+  };
+
+  self.basketCount = function() {
+    var itemCount = 0;
+    self.basket.forEach(function(item) {
+      itemCount += item.quantity;
+    });
+    return itemCount;
+  };
+
   var outOfStock = function(product) {
     if (product.stock === 0) {
       return true;
@@ -31,4 +54,4 @@ clothingShopFront.service('BasketService', function() {
     return product.stock <= product.quantity;
   };
 
-});
+}]);

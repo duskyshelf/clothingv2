@@ -1,9 +1,10 @@
-clothingShopFront.service('VoucherService', function() {
+clothingShopFront.service('VoucherService', [ 'BasketService', function(BasketService) {
 
   var self = this;
+  var basketService = BasketService;
 
+  self.basket = basketService.basket;
   self.discount = 0;
-  self.basket = [];
   self.voucheralert = "";
 
   var getVoucherList = function() {
@@ -20,8 +21,8 @@ clothingShopFront.service('VoucherService', function() {
     };
   };
 
-  self.applyVoucher = function(voucher, shoppingBasket) {
-    self.basket = shoppingBasket;
+  self.applyVoucher = function(voucher) {
+    self.basket = basketService.basket;
     if (validVoucherCode(voucher)) {processCode(voucher);}
   };
 
@@ -73,4 +74,4 @@ clothingShopFront.service('VoucherService', function() {
     return self.basket.length > 0;
   };
 
-});
+}]);
