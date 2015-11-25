@@ -45,8 +45,6 @@ I store the voucher codes within a function which stores the codes, validations 
 
 #### Improvements
 
-I would liked to have taken more time to move a the basket methods out of the controller into a separate service. This would have been my next priority as this seems like a good opportunity to move the bulk of the remaining logic out of the controller.
-
 My styling is relatively simple, and whilst functional could be improved.
 
 Adding a notification when a product is out of stock would have improved the UX.
@@ -120,6 +118,7 @@ This was built using AngularJS
     │       ├── app.js
     │       ├── productFactory.js
     │       ├── shopFrontController.js
+    │       ├── basketService.js
     │       └── voucherService.js
     ├── readmeimages
     │   └── homepage.png
