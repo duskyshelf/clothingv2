@@ -91,6 +91,7 @@ This was built using AngularJS
 **Angular module** | public/js/app.js
 **Controller** | public/js/shopFrontController.js
 **Voucher Service** | public/js/voucherService.js
+**Basket Service** | public/js/basketService.js
 **Product List (JSON)** | public/js/ProductList.JSON
 **Product Factory** | public/js/productFactory.js
 **Stylesheet** | public/css/stylesheet.css
