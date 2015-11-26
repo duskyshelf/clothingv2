@@ -4,13 +4,11 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   var voucherService = VoucherService;
   var basketService = BasketService;
 
-  var getProducts = function() {
+  var getProducts = (function() {
     productData.then(function(response){
       self.productdata = response.data;
     });
-  };
-
-  getProducts();
+  })();
 
   self.basket = basketService.basket;
   self.discount = 0;

@@ -1,4 +1,4 @@
-clothingShopFront.service('BasketService', ['productData', function(productData) {
+clothingShopFront.service('BasketService', function() {
 
   var self = this;
 
@@ -54,4 +54,4 @@ clothingShopFront.service('BasketService', ['productData', function(productData)
     return product.stock <= product.quantity;
   };
 
-}]);
+});
