@@ -37,7 +37,8 @@ I store the voucher codes within a function which stores the codes, validations 
             "tenoff":  { "validation": [ basketNonEmpty(), basketAbove(50) ],
                          "discount": 10,
                          "message": "£10 Discount Applied" },
-            "15off":   { "validation": [ basketNonEmpty(), basketAbove(75), basketContains("Footwear") ],
+            "15off":   { "validation": [ basketNonEmpty(), basketAbove(75), 
+                                         basketContains("Footwear") ],
                          "discount": 15,
                          "message": "£15 Discount Applied"}
           };
