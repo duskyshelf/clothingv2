@@ -7,21 +7,23 @@ clothingShopFront.service('BasketService', function() {
   self.addItem = function(product) {
     if (outOfStock(product)) { throw "Out of stock"; }
 
-    var found = self.basket.some(function(item) {
-      return item.name === product.name;
-    });
-
-    if (!found) {
-      product.quantity = 1;
-      self.basket.push(product);
-    }
-    else {
+    if (matchingItemInBasket(product)) {
       for (var i in self.basket) {
         if (self.basket[i].name == product.name) {
           self.basket[i].quantity++;
         }
       }
     }
+    else {
+      product.quantity = 1;
+      self.basket.push(product);
+    }
+  };
+
+  var matchingItemInBasket = function(product) {
+    return self.basket.some(function(item) {
+      return item.name === product.name;
+    });
   };
 
   self.removeFromBasket = function(product) {
