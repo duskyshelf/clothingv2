@@ -6,6 +6,8 @@ describe('ClothingShopController', function() {
 
   beforeEach(inject(function($controller) {
     ctrl = $controller('ClothingShopController');
+    ctrl.basket = ctrl.basketService.basket;
+    ctrl.applyVoucher = ctrl.voucherService.applyVoucher;
   }));
 
   it('initialises with an empty basket', function() {
@@ -33,7 +35,7 @@ describe('ClothingShopController', function() {
 
   it('allows £5 off voucher to be applied', function() {
     ctrl.addItem({"name": "example", "price": 100, "category": "example"});
-    ctrl.applyVoucher('fiveoff');
+    ctrl.voucherService.applyVoucher('fiveoff');
     expect(ctrl.basketTotal()).toEqual(95);
   });
 

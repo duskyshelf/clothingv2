@@ -27,25 +27,25 @@
       </div>
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle basket-button" type="button" data-toggle="dropdown">
-          Basket - {{shopCtrl.basketCount()}} items
+          Basket - {{shopCtrl.basketService.basketCount()}} items
         <span class="caret"></span></button>
         <div class="dropdown-menu">
-          <div class="shopping-cart" ng-repeat="item in shopCtrl.basket">
+          <div class="shopping-cart" ng-repeat="item in shopCtrl.basketService.basket">
             <p> {{item.name}} </p>
             <p>  quantity: {{item.quantity}} </p>
             <p> Cost: £{{item.price * item.quantity}} </p>
-            <button class="btn-xs" id="basket-{{shopCtrl.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
+            <button class="btn-xs" id="basket-{{shopCtrl.basketService.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
           </div>
           <div class="basket-total">
             Total: £{{ shopCtrl.basketTotal().toFixed(2) }}
           </div>
           <div class="voucher-notifier">
-            {{ shopCtrl.voucheralert }}
+            {{ shopCtrl.voucherService.voucheralert }}
           </div>
           <form class="form-horizontal voucher-wrapper">
             Voucher Code:
-            <input class="voucher-box" type="text" ng-model="shopCtrl.voucherCode">
-            <button class="btn-xs voucher-btn" ng-click="shopCtrl.applyVoucher(shopCtrl.voucherCode)">Apply</button>
+            <input class="voucher-box" type="text" ng-model="shopCtrl.voucherService.voucherCode">
+            <button class="btn-xs voucher-btn" ng-click="shopCtrl.voucherService.applyVoucher(shopCtrl.voucherService.voucherCode)">Apply</button>
           </form>
         </div>
       </div>
