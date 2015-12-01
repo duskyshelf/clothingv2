@@ -21,8 +21,6 @@ This project was test driven using Karma for unit testing and then Protractor fo
 
 I saved the product data as a local JSON file and called it through an Angular factory as I wanted to set the data up quickly, but with the option of moving it to an external API if required.
 
-I initially built most of the logic in the controller and refactored the majority of the logic into 2 services, VoucherService and BasketService.
-
 Styling was done using HTML/CSS and Bootstrap. I kept the styling very simple as I wanted to focus more on the testing and logic. Bootstrap was useful for making sure the site was responsive.
 
 #### Voucher Code Comments
@@ -37,18 +35,12 @@ I store the voucher codes within a function which stores the codes, validations 
             "tenoff":  { "validation": [ basketNonEmpty(), basketAbove(50) ],
                          "discount": 10,
                          "message": "£10 Discount Applied" },
-            "15off":   { "validation": [ basketNonEmpty(), basketAbove(75), 
+            "15off":   { "validation": [ basketNonEmpty(), basketAbove(75),
                                          basketContains("Footwear") ],
                          "discount": 15,
                          "message": "£15 Discount Applied"}
           };
         };
-
-#### Improvements
-
-My styling is relatively simple, and whilst functional could be improved.
-
-Adding a notification when a product is out of stock would have improved the UX.
 
 ## How to build
 
