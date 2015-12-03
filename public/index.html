@@ -34,7 +34,7 @@
             <p> {{ item.name }} </p>
             <p>  quantity: {{ item.quantity }} </p>
             <p> Cost: £{{ item.price * item.quantity }} </p>
-            <button class="btn-xs" id="basket-{{shopCtrl.basketService.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
+            <button class="btn-xs" id="basket-{{ shopCtrl.basketService.basket.indexOf(item) }}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
           </div>
           <div class="basket-total">
             Total: £{{ shopCtrl.discountedBasketValue().toFixed(2) }}
