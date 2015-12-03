@@ -37,7 +37,7 @@
             <button class="btn-xs" id="basket-{{shopCtrl.basketService.basket.indexOf(item)}}" ng-click="shopCtrl.removeFromBasket(item)">Remove Item</button>
           </div>
           <div class="basket-total">
-            Total: £{{ shopCtrl.discountedBasketValue }}
+            Total: £{{ shopCtrl.discountedBasketValue().toFixed(2) }}
           </div>
           <div class="voucher-notifier">
             {{ shopCtrl.voucherService.voucheralert }}

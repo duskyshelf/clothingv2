@@ -28,45 +28,45 @@ describe('ClothingShopController', function() {
 
   it('calculates a running total for the basket', function() {
     ctrl.addItem({"name": "example", "price": 100, "category": "example"});
-    expect(ctrl.basketTotal()).toEqual(100);
+    expect(ctrl.discountedBasketValue()).toEqual(100);
     ctrl.addItem({"name": "example2", "price": 150, "category": "example"});
-    expect(ctrl.basketTotal()).toEqual(250);
+    expect(ctrl.discountedBasketValue()).toEqual(250);
   });
 
   it('allows £5 off voucher to be applied', function() {
     ctrl.addItem({"name": "example", "price": 100, "category": "example"});
     ctrl.voucherService.applyVoucher('fiveoff');
-    expect(ctrl.basketTotal()).toEqual(95);
+    expect(ctrl.discountedBasketValue()).toEqual(95);
   });
 
   it('allows £10 off voucher to be applied for order over £50', function() {
     ctrl.addItem({"name": "example", "price": 100, "category": "example"});
     ctrl.applyVoucher('tenoff');
-    expect(ctrl.basketTotal()).toEqual(90);
+    expect(ctrl.discountedBasketValue()).toEqual(90);
   });
 
   it('does not allow £10 off voucher to be applied for order under £50', function() {
     ctrl.addItem({"name": "example", "price": 40, "category": "example"});
     ctrl.applyVoucher('tenoff');
-    expect(ctrl.basketTotal()).toEqual(40);
+    expect(ctrl.discountedBasketValue()).toEqual(40);
   });
 
   it('allows £15 off voucher to be applied for male footwear order over £75', function() {
     ctrl.addItem({"name": "example", "category": "Men's Footwear", "price": 80});
     ctrl.applyVoucher('15off');
-    expect(ctrl.basketTotal()).toEqual(65);
+    expect(ctrl.discountedBasketValue()).toEqual(65);
   });
 
   it('allows £15 off voucher to be applied for female footwear order over £75', function() {
     ctrl.addItem({"name": "example", "category": "Women's Footwear", "price": 80});
     ctrl.applyVoucher('15off');
-    expect(ctrl.basketTotal()).toEqual(65);
+    expect(ctrl.discountedBasketValue()).toEqual(65);
   });
 
   it('does not allow £15 off voucher to be applied non-footwear order', function() {
     ctrl.addItem({"name": "example", "category": "Men's Casualwear", "price": 80});
     ctrl.applyVoucher('15off');
-    expect(ctrl.basketTotal()).toEqual(80);
+    expect(ctrl.discountedBasketValue()).toEqual(80);
   });
 
   it('does not allow an out of stock item to be ordered', function() {

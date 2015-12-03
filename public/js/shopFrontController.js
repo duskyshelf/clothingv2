@@ -24,7 +24,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   };
 
   self.discountedBasketValue = function() {
-    return (BasketService.basketTotal() - VoucherService.discount).toFixed(2);
+    return BasketService.basketTotal() - VoucherService.discount;
   };
 
   self.outOfStock = function(item) {
