@@ -32,7 +32,6 @@ clothingShopFront.service('BasketService', function() {
     self.basket.splice(index, 1);
   };
 
-
   self.basketTotal = function() {
     var baskettotal = 0;
     self.basket.forEach(function(item) {
