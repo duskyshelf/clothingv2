@@ -4,11 +4,9 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   self.basket = BasketService.basket;
   self.voucherService = VoucherService;
 
-  var getProducts = (function() {
-    productData.then(function(response) {
-      self.productdata = response.data;
-    });
-  })();
+  productData.then(function(response) {
+    self.productdata = response.data;
+  });
 
   self.addItem = function(product) {
     BasketService.addItem(product);
@@ -27,13 +25,13 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
     return BasketService.basketTotal() - VoucherService.discount;
   };
 
-  self.outOfStock = function(item) {
+  self.outOfStock = function(product) {
     if (product.stock === 0) { return true; }
     return product.stock <= product.quantity;
   };
 
   self.basketCount = function() {
-    BasketService.count();
+    return BasketService.count();
   };
 
 }]);
