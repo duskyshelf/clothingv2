@@ -1,9 +1,7 @@
 clothingShopFront.service('VoucherService', [ 'BasketService', function(BasketService) {
 
   var self = this;
-  var basketService = BasketService;
 
-  self.basket = basketService.basket;
   self.discount = 0;
   self.voucheralert = "";
 
@@ -22,8 +20,7 @@ clothingShopFront.service('VoucherService', [ 'BasketService', function(BasketSe
   };
 
   self.applyVoucher = function(voucher) {
-    self.basket = basketService.basket;
-    if (validVoucherCode(voucher)) {processCode(voucher);}
+    if (validVoucherCode(voucher)) { processCode(voucher); }
   };
 
   var processCode = function(voucher) {
@@ -52,7 +49,7 @@ clothingShopFront.service('VoucherService', [ 'BasketService', function(BasketSe
 
   var basketTotal = function() {
     var baskettotal = 0;
-    self.basket.forEach(function(item) {
+    BasketService.basket.forEach(function(item) {
       baskettotal += item.price * item.quantity;
     });
     return baskettotal;
@@ -64,14 +61,14 @@ clothingShopFront.service('VoucherService', [ 'BasketService', function(BasketSe
 
   var basketContains = function(string) {
     var basketcheck = false;
-    basketcheck = self.basket.some(function(item) {
+    basketcheck = BasketService.basket.some(function(item) {
       return item.category.split(" ")[1] === string;
     });
     return basketcheck;
   };
 
   var basketNonEmpty = function() {
-    return self.basket.length > 0;
+    return BasketService.basket.length > 0;
   };
 
 }]);

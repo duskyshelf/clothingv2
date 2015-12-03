@@ -5,7 +5,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   self.voucherService = VoucherService;
 
   var getProducts = (function() {
-    productData.then(function(response){
+    productData.then(function(response) {
       self.productdata = response.data;
     });
   })();
@@ -28,9 +28,7 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   };
 
   self.outOfStock = function(item) {
-    if (product.stock === 0) {
-      return true;
-    }
+    if (product.stock === 0) { return true; }
     return product.stock <= product.quantity;
   };
 
