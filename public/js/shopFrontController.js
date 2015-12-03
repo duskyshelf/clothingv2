@@ -1,7 +1,7 @@
 clothingShopFront.controller('ClothingShopController', [ 'productData', 'VoucherService', 'BasketService', function(productData, VoucherService, BasketService) {
 
   var self = this;
-  self.basketService = BasketService;
+  self.basket = BasketService.basket;
   self.voucherService = VoucherService;
 
   var getProducts = (function() {
@@ -30,6 +30,10 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
   self.outOfStock = function(item) {
     if (product.stock === 0) { return true; }
     return product.stock <= product.quantity;
+  };
+
+  self.basketCount = function() {
+    BasketService.count();
   };
 
 }]);

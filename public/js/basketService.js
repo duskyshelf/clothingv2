@@ -41,7 +41,7 @@ clothingShopFront.service('BasketService', function() {
     return baskettotal;
   };
 
-  self.basketCount = function() {
+  self.count = function() {
     var itemCount = 0;
     self.basket.forEach(function(item) {
       itemCount += item.quantity;

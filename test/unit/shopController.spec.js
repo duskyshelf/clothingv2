@@ -6,7 +6,6 @@ describe('ClothingShopController', function() {
 
   beforeEach(inject(function($controller) {
     ctrl = $controller('ClothingShopController');
-    ctrl.basket = ctrl.basketService.basket;
     ctrl.applyVoucher = ctrl.voucherService.applyVoucher;
   }));
 
