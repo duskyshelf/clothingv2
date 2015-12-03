@@ -23,15 +23,11 @@ clothingShopFront.controller('ClothingShopController', [ 'productData', 'Voucher
     VoucherService.applyVoucher(VoucherService.discountcode);
   };
 
-  self.basketTotal = function() {
-    return BasketService.basketTotal() - VoucherService.discount;
+  self.discountedBasketValue = function() {
+    return (BasketService.basketTotal() - VoucherService.discount).toFixed(2);
   };
 
   self.outOfStock = function(item) {
-    return outOfStock(item);
-  };
-
-  var outOfStock = function(product) {
     if (product.stock === 0) {
       return true;
     }
