@@ -6,12 +6,27 @@
 
 Heroku build: [https://clothingshopv2.herokuapp.com/](https://clothingshopv2.herokuapp.com/)
 
-(all notes about building, testing and file structure around this application can be found below)
-
 #### Tools Used
 
 Testing: Karma, Protractor  
 Frameworks: Angular, Bootstrap
+Hosting: Express, Node
+
+(all notes about testing and file structure can be found below)
+
+## How to build
+
+All commands assume you are running this from terminal.
+
+1. Clone this repo and open the containing folder
+  * `git clone https://github.com/duskyshelf/clothingshop.git`
+2. Make sure you have node and bower: `node -v` and `bower -v`  
+3. Run `bower install`  
+4. Run `npm install`  
+5. Run `http-server`  
+6. Visit: [http://localhost:8080/ ](http://localhost:8080/ )  
+
+
 
 #### Comments about build
 
@@ -42,18 +57,6 @@ I store the voucher codes within a function which stores the codes, validations 
           };
         };
 
-## How to build
-
-All commands assume you are running this from terminal.
-
-1. Clone this repo and open the containing folder
-  * `git clone https://github.com/duskyshelf/clothingshop.git`
-2. Make sure you have node and bower: `node -v` and `bower -v`  
-3. Run `bower install`  
-4. Run `npm install`  
-5. Run `http-server`  
-6. Visit: [http://localhost:8080/ ](http://localhost:8080/ )  
-
 ### Testing
 
 Run the following commands from terminal to run the tests
@@ -66,7 +69,6 @@ Run the following commands from terminal to run the tests
 1. `webdriver-manager start`  
 2. `http-server`  
 3. `protractor test/protractor.conf.js`  
-
 
 ### Discount codes
 
