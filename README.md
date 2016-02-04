@@ -9,7 +9,7 @@ Heroku build: [https://clothingshopv2.herokuapp.com/](https://clothingshopv2.her
 #### Tools Used
 
 Testing: Karma, Protractor  
-Frameworks: Angular, Bootstrap
+Frameworks: Angular, Bootstrap  
 Hosting: Express, Node
 
 (all notes about testing and file structure can be found below)
